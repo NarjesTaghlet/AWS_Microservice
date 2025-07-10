@@ -10,4 +10,9 @@ import { TokenGuard } from './aws/Guards/token-guard';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+constructor(){
+    console.log(process.env.AWS_ACCESS_KEY_ID)
+
+}
+}
