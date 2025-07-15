@@ -14,7 +14,8 @@ jobs:
 
       
       - name: Set DockerHub username
-        run: echo "USERNAME=${{ secrets.DOCKER_USERNAME }}" >> $GITHUB_ENV  
+        run: echo "USERNAME=${{ secrets.DOCKER_USERNAME }}" 
+        # run: echo "USERNAME=${{ secrets.DOCKER_USERNAME }}" >> $GITHUB_ENV  
 
       - name: Log in to DockerHub
         uses: docker/login-action@v3
