@@ -11,7 +11,8 @@ export class AwsService {
 
   async createSubAccount(userId: number, subscriptionPlan: string, email: string) {
     try {
-      const managementAccountId = process.env.management_accound_id;
+      const managementAccountId = this.configService.get<string>('management_accound_id');
+
 
       // ✅ 1. Validate inputs
       if (!userId || userId <= 0) throw new Error('Invalid userId');
