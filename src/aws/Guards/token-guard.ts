@@ -5,7 +5,7 @@ import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class TokenGuard implements CanActivate {
-  constructor(private readonly httpService: HttpService , private readonly configService : configservice {}
+  constructor(private readonly httpService: HttpService , private readonly configService : ConfigService) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const request = context.switchToHttp().getRequest();
@@ -14,8 +14,8 @@ export class TokenGuard implements CanActivate {
       throw new HttpException('No token provided', HttpStatus.UNAUTHORIZED);
     }
 
-const userServiceUrl = this.configService.get<string>('USER_SERVICE_URL', 'http://localhost:3030');
 
+const userServiceUrl = this.configService.get<string>('USER_SERVICE_URL', 'http://localhost:3030');
 
     try {
       const response = await firstValueFrom(
